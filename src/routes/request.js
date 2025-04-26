@@ -53,12 +53,15 @@ requestRouter.patch("/review/:status/:requestId", async (req, res) => {
     try {
 
         const { status, requestId } = req?.params;
+        console.log("staus", status);
+        console.log("requestId", requestId);
         const allowedStatuses = ["accepted", "rejected"];
         const user = req.user;
 
         if (!allowedStatuses.includes(status)) throw new Error("Invalid Status");
 
         const requestDetails = await ConnectionRequest.findById(requestId);
+        console.log("details are", requestDetails);
 
         if (!requestDetails?.toUserId.equals(user.id) || requestDetails?.status !== "interested") throw new Error("Invalid Request");
 

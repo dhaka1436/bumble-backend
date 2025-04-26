@@ -29,9 +29,6 @@ connectionRequestScehma.pre("save", function (next) {
 
     const connectionRequest = this;
 
-    console.log("From Id is", connectionRequest.fromUserId);
-    console.log("To User Id is", connectionRequest.toUserId);
-
     if (connectionRequest.fromUserId.equals(connectionRequest.toUserId)) throw new Error("Cannot Send Request to Own Profile");
     next();
 })

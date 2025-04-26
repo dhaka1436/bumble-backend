@@ -6,6 +6,7 @@ const userAuth = async (req, res, next) => {
     try {
         const { token } = req.cookies;
 
+
         if (!token) throw new Error("Token is not valid");
         const checkToken = await jwt.verify(token, "fbsdjhbf3hj2b2hj23b@#$%^&hjbchjsdb^&*8chjsdbchjdsbhjdb");
 

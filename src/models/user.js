@@ -13,6 +13,8 @@ const userSchema = new Schema({
     gender: {
         type: String,
         required: true,
+        lowercase: true,
+        trim: true,
         validate(value) {
             if (!["male", "female", "others"].includes(value)) throw new Error("Gender is not Valid")
         }
