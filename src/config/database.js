@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const connectToDatabase = async () => {
-    await mongoose.connect("mongodb+srv://himanshudhaka:EIFua0vzV2NKJwqU@tinderdev.nq0fmop.mongodb.net/bumbleBackend");
+    await mongoose.connect(process.env.DB_URL);
 }
 
 

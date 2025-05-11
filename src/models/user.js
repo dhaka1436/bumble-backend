@@ -49,7 +49,7 @@ userSchema.methods.getJWT = async function () {
 
     const user = this;
 
-    const token = await jwt.sign({ _id: user?._id }, "fbsdjhbf3hj2b2hj23b@#$%^&hjbchjsdb^&*8chjsdbchjdsbhjdb");
+    const token = await jwt.sign({ _id: user?._id }, process.env.JWT_TOKEN);
 
     return token;
 }
